@@ -1,0 +1,98 @@
+.logo-wrapper img{
+    width: 70px;
+    margin-left: 35px;
+}
+.page-main-header .main-header-right .main-header-left{
+    justify-content: left;
+}
+
+/* color css start here */
+.nav-menus .btn-primary-light{
+    color: #fff;
+    background-color: #FD354F !important;
+    border-radius: 30px;
+    padding: 10px 20px !important;
+}
+.page-main-header .main-header-right .nav-right.right-menu ul li:hover{
+    background-color: transparent !important;
+}
+
+.page-main-header .main-header-right .nav-right .btn-primary-light svg path {
+    color: #fff;
+}
+.page-main-header .main-header-right .left-menu-header ul li i {
+    color: #0070FF;
+}
+.page-main-header .main-header-right .nav-right .bookmark-dropdown ul li.add-to-bookmark:hover {
+    color: #0070FF;
+}
+.page-main-header .main-header-right .nav-right.right-menu ul li:hover .media .media-body p {
+    color: #0070FF;
+}
+.notification-dropdown li p {
+    color: #0070FF;
+}
+.page-main-header .main-header-right .nav-right .notification-dropdown li .badge-primary{
+    background-color: #FD354F;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 5px;
+}
+.page-main-header .main-header-right .nav-right .notification-dropdown li.noti-primary:hover {
+    background-color: #FD354F;
+}
+.page-main-header .main-header-right .nav-right .btn-primary-light:focus, .page-main-header .main-header-right .nav-right .btn-primary-light:hover {
+    background-color: #0070FF !important;
+    color: #fff;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu > li .nav-link.active, .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu > li .nav-link:hover {
+    background-color: #0070FF;
+    color: #fff !important;
+}
+.according-menu i{
+    color: #0070FF;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .sidebar-main-title > div h6 {
+    color: #0070FF;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu .dropdown ul.nav-submenu li a.active, .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu .dropdown ul.nav-submenu li a:hover {
+    color: #0070FF;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu .dropdown ul.nav-submenu li a{
+    color: #0070FF;
+}
+.main-nav a{
+    color: #0070FF !important;
+}
+.page-main-header .main-header-right .toggle-sidebar svg {
+    color: #0070FF;
+}
+.toprightarrow-primary {
+    color: #fff;
+    background-color: #FD354F;
+}
+.setting-primary svg {
+    color: #0070FF;
+}
+.setting-primary:hover {
+    background-color: #0070FF;
+    color: #fff;
+}
+.setting-primary i {
+    color: #0070FF;
+}
+.profile-greeting .btn{
+    color: #0070FF;  
+}
+.profile-greeting .btn:hover {
+    color: #fff;
+    background-color: #0070FF !important;
+    border-color: #0070FF !important;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .sidebar-user .badge-bottom .badge{
+    background-color: #0070FF;
+    box-shadow: 0px 7px 10px rgb(0 112 255 / 30%);
+}
+
+
+/* color css end here */
