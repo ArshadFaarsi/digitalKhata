@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,8 +27,7 @@
     <!-- Font Awesome-->
     @includeIf('layouts.admin.partials.css')
 </head>
-
-<body class="rtl">
+<body class="ltr">
     <!-- Loader starts-->
     <div class="loader-wrapper">
         <div class="theme-loader"></div>

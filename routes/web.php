@@ -21,11 +21,12 @@ Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
     }
-
     return redirect()->route('admin.home');
 });
 //logout
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
 
 Auth::routes(['register' => false]);
 
@@ -45,17 +46,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('users', 'UsersController');
     //Account
     Route::resource('accounts', 'AccountController');
+    //**Statement */
+    Route::resource('statement', 'StatementController');
 
-});
+    Route::get('account/member/{id}', 'StatementController@index')->name('account.member');
+    /** members */
+    Route::resource('member', 'MemberController');
 
-Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
-    // Change password
-    if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
-        Route::get('password', 'ChangePasswordController@edit')->name('password.edit');
-        Route::post('password', 'ChangePasswordController@update')->name('password.update');
-        Route::post('profile', 'ChangePasswordController@updateProfile')->name('password.updateProfile');
-        Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
-    }
+    /**Profile */
+    Route::resource('profile', 'ProfileController');
+    Route::post('password', 'ProfileController@updatePassword')->name('password.update');
+
 });
 
 /** layout and theme route */

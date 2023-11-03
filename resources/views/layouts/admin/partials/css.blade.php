@@ -18,6 +18,10 @@
 <link id="color" rel="stylesheet" href="{{ asset('assets/css/color-1.css') }}" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+
+<!-- multiselect css-->
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/select2.css') }}">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
+
 
 

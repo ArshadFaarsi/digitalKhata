@@ -15,8 +15,18 @@ class Account extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class, 'account_user', 'account_id','user_id');
+    }
+    
+    /**
+     * Get the user that owns the Account
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function records()
+    {
+        return $this->hasMany(Record::class, 'account_id');
     }
 }

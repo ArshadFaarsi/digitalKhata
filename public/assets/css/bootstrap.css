@@ -2945,7 +2945,8 @@ textarea.form-control-lg {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -90px;
+
   z-index: 1000;
   display: none;
   min-width: 10rem;

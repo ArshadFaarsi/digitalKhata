@@ -7,7 +7,7 @@ window.vihoAdminConfig = {
 	// theme secondary color
 	secondary: secondary,
 };
-localStorage.clear();
+// localStorage.clear();
 
 // defalt layout
 $("#default-demo").click(function(){      

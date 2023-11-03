@@ -17,11 +17,8 @@
     <div class="card-body">
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-Permission">
-                <thead>
+                <thead class="bg-primary">
                     <tr>
-                        <th width="10">
-
-                        </th>
                         <th>
                             {{ trans('cruds.permission.fields.id') }}
                         </th>
@@ -35,9 +32,6 @@
                     @foreach($permissions as $key => $permission)
                         <tr data-entry-id="{{ $permission->id }}">
                             <td>
-
-                            </td>
-                            <td>
                                 {{ $loop->iteration}}
                             </td>
                             <td>
@@ -45,15 +39,13 @@
                             </td>
                             <td>
                                 @can('permission_show')
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.permissions.show', $permission->id) }}">
-                                    {{ trans('global.view') }}
-                                </a>
+                                <a href="{{ route('admin.permissions.show', $permission->id) }}"><i data-feather="eye"
+                                    class="text-success"></i></a>
                             @endcan
 
                             @can('permission_edit')
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.permissions.edit', $permission->id) }}">
-                                    {{ trans('global.edit') }}
-                                </a>
+                                <a href="{{ route('admin.permissions.edit', $permission->id) }}"><i data-feather="edit"
+                                    class="text-info"></i></a>
                             @endcan
 
                             @can('permission_delete')
@@ -61,8 +53,8 @@
                                     style="display: inline-block;">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <input type="submit" class="btn btn-xs btn-danger"
-                                        value="{{ trans('global.delete') }}">
+                                    <button class="border" type="submit"><i data-feather="trash"
+                                        class="text-danger"></i></button>
                                 </form>
                             @endcan
 
@@ -77,25 +69,4 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-@parent
-<script>
-    $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-  
-  $.extend(true, $.fn.dataTable.defaults, {
-    orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 100,
-  });
-  let table = $('.datatable-Permission:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
-  
-})
-
-</script>
 @endsection

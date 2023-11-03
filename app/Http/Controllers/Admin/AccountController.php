@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Account;
 use App\Models\User;
+use App\Models\Account;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -16,7 +17,10 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $accounts = Account::with('user')->get();
+
+        $user = User::with('accounts.users')->find(Auth::id());
+        $accounts = $user->accounts;
+
         return view('admin.account.index', compact('accounts'));
     }
 
@@ -48,7 +52,7 @@ class AccountController extends Controller
         ]);
 
         $account = Account::create($request->all());
-        $account->user()->attach($request->users);
+        $account->users()->attach($request->users);
         return redirect()->route('admin.accounts.index');
     }
 
@@ -71,8 +75,9 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        $account = Account::with('user')->find($id);
+        $account = Account::with('users')->find($id);
         $users = User::all();
+
         return view('admin.account.edit', compact('account', 'users'));
     }
 
@@ -95,7 +100,7 @@ class AccountController extends Controller
 
         $account = Account::find($id);
         $account->update($request->all());
-        $account->user()->sync($request->users);
+        $account->users()->sync($request->users);
         return redirect()->route('admin.accounts.index');
     }
 

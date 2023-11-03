@@ -17,11 +17,8 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class=" table table-bordered table-striped table-hover datatable datatable-Role">
-                    <thead>
+                    <thead class="bg-primary">
                         <tr>
-                            <th width="10">
-
-                            </th>
                             <th>
                                 {{ trans('cruds.role.fields.id') }}
                             </th>
@@ -38,9 +35,6 @@
                         @foreach ($roles as $key => $role)
                             <tr data-entry-id="{{ $role->id }}">
                                 <td>
-
-                                </td>
-                                <td>
                                     {{ $loop->iteration}}
                                 </td>
                                 <td>
@@ -54,15 +48,13 @@
                                 <td>
 
                                     @can('role_show')
-                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.roles.show', $role->id) }}">
-                                            {{ trans('global.view') }}
-                                        </a>
+                                        <a href="{{ route('admin.roles.show', $role->id) }}"><i data-feather="eye"
+                                            class="text-primary"></i></a>
                                     @endcan
 
                                     @can('role_edit')
-                                        <a class="btn btn-xs btn-info" href="{{ route('admin.roles.edit', $role->id) }}">
-                                            {{ trans('global.edit') }}
-                                        </a>
+                                        <a href="{{ route('admin.roles.edit', $role->id) }}"><i data-feather="edit"
+                                            class="text-info"></i></a>
                                     @endcan
 
                                     @can('role_delete')
@@ -70,8 +62,8 @@
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
-                                                value="{{ trans('global.delete') }}">
+                                            <button class="border" type="submit"><i data-feather="trash"
+                                                class="text-danger"></i></button>
                                         </form>
                                     @endcan
 
@@ -84,28 +76,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-    @parent
-    <script>
-        $(function() {
-            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-
-            $.extend(true, $.fn.dataTable.defaults, {
-                orderCellsTop: true,
-                order: [
-                    [1, 'desc']
-                ],
-                pageLength: 100,
-            });
-            let table = $('.datatable-Role:not(.ajaxTable)').DataTable({
-                buttons: dtButtons
-            })
-            $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e) {
-                $($.fn.dataTable.tables(true)).DataTable()
-                    .columns.adjust();
-            });
-
-        })
-    </script>
 @endsection

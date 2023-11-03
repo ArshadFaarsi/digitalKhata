@@ -33,6 +33,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
+        'image',
         'email',
         'phone',
         // 'email_verified_at',
@@ -73,6 +74,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function accounts()
+    {
+        return $this->belongsToMany(Account::class, 'account_user', 'account_id','user_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)
